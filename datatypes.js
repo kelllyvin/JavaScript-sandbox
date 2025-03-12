@@ -22,4 +22,26 @@ const accountNumber = 20
 const accountnumber=20
 
 
+// variables
+// strings, string propertied
+// length concatenayed
+// method
+// touppercase, tolowercase. number method to fixed
+// includes. stsrtwith endswith charat substring slice substr trimstart 
+// split templet literials 
+
+//  numbers
+// math operators
+// order of operdation
+// number method
+
+
+// booleans true or false
+// comparison > < <= >= == ===
+// logical operators && ! ||
+// truthy and falsy values
+// numbers + - truety or falsy
+// strings 
+// null undefined
+
 
