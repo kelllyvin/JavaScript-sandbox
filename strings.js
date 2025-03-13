@@ -83,7 +83,7 @@ console.log("welcome" +""+ userName.toUpperCase);
   console.log(country.startsWith("e"));
   console.log(country.includes("h"));
   
-  const sentence4 = {i live in $(country.toUpperCase)}
+const sentence4 = (`i live in ${country.toUpperCase}`)
   
 
   
