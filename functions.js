@@ -127,7 +127,7 @@ console.log(hoursTomins(2));
 // two years is equal to months
 
 function yerasToMonths(years){
-    let months = years / 12
+    let months = years * 12
     return `${years} years is equal to ${ years * 12} months `
 }
 console.log(yerasToMonths(2));
