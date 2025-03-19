@@ -1,41 +1,62 @@
-// MATH OBJECT
-// squrt, power, round, floor, trumc, random
+let cars = [
+    {name:"Lamborghini huracan", rentprice: 100, category: "sport"},
+    {name:"Range Rover", rentprice: 70, category: "suv"},
+    {name:"Audi no", rentprice: 120, category: "sport"},
+    {name:"Mustang", rentprice: 80, category: "vintage"},
+    {name:"porche 911", rentprice: 120, category: "sport"},
+    {name:"Chevrolet Camero 1976", rentprice: 80, category: "vintage"},
+    {name:"Rolls Royce", rentprice: 70, category: "sport"},
+    {name:"Tesla Model x", rentprice: 120, category: "sport"},
+    {name:"Bmw x5", rentprice: 40, category: "suv"},
+    {name:"Volkswagen beetle 19", rentprice: 100, category: "spoprt"},
+]
 
-console.log(Math.sqrt(25)); // squre root
+cars[1];
+cars[0].name;
 
-console.log(Math.pow(10, 2)); // multiply thenum
+const vintageCars = cars.filter((car) => car.category === "vintage");
+console.log(vintageCars);
 
-console.log(Math.round(1.09)); // round up to the nearest integer
- console.log(Math.ceil(2.5)); // always round up to the neartes number
+let totalrentPrice = cars.reduce((acc, car) => acc + car.rentprice, 0);
 
- console.log(Math.floor(4.9)); // alwyas round down to the number
+const carsMorethan100 = cars.every((c) => c.rentprice > 100);
 
- console.log(Math.trunc(11.99)); // it totally remove the decimal point 
+let myName = "Kelvin";
+// == ===
 
- // math .random generates numbers btwn 0-1
+let data = {
+  success: true,
+  message: "Product in Stock",
+  products: ["Glasses", "Lipssticks", "Shoes"],
+};
 
- console.log(Math.random());
- console.log(Math.trunc(Math.random)*11); // round to 10 
+console.log(data.products[2]);
 
- console.log(Math.floor(Math.random()*10 +1)); // add 1 to it if it rands to zero
+const { products } = data;
+products[2];
 
- // raffle draw
- let customers =['alex','danny','paulin','dev']
+const meals = [
+  {
+    meal: {
+      name: "Sushi",
+      price: 45,
+      category: "Side",
+    },
+  },
+];
 
- let randomwinner =()=>{
-     let randomNumber = Math.floor(Math.random()* customers.length)
-     return customers(randomNumber)
- }
- console.log(randomwinner);
- 
- // otp generator
-
- 
- 
- 
- 
- 
- 
-
-
+console.log(meals[0].meal.name);
+const airline = {
+  types: [
+    {
+      name: {
+        brand: "Air Peace",
+        brand2: "Green Africa",
+        brand3: "Max Air",
+        brand4: "Emirates",
+      },
+    },
+  ],
+};
+console.log(airline.types[0].name.brand3);
 
