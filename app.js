@@ -1,140 +1,99 @@
+// Document object model (dom)
+// select element on the document by either tagName, classNamme, ansd idName, lso by combination
+// these re mostly process one would be able to select object in a document
+// let headings =document .getElementsByTagName("h1")
+// console.log(headings);
+// let myHis = document.getElementsByClassName("heading")
+// console.log(myHis);
+// let textPara =document.getElementById("text")
 
+// // one can also get object with querySelector also css model work on it
 
-// let bal = 3000
+// let firstPara = document.querySelector("p")
+// console.log(firstPara);
 
+// let allparas = document.querySelectorAll("p")
+// console.log(allparas);
 
+// now we will be talikin about 
+// intracting with  content on the doc
+// by either textcontent, innertext, innerhtml
 
-// function checkpin(enteredpin){
-    
-//     while(attempts > 0){
-//         let enteredpin = parseint(prompt("Enter pin"));
-//         if (enteredpin === pin){
-//             alert("pin accepted. welcome!");
-//             atmMenu();
-//             return;
+const heading = document.querySelector(".heading")
+console.log(heading.textContent);
+console.log(heading.innerText);
+heading.textContent += "JS IS FUN"
+// heading .innertext = "JS IS FUN";
+  
+let container = document.querySelector("div")
+console.log(container.innerHTML);
+container.innerHTML += "<a href='https://google.com'>visit google</a>"
 
+const name = 'john Paul'
+const initials = 'j.p'
+const intro = document.querySelector("h2")
+intro.textContent = `welcome ${name}`;
+// welcome initilas
 
-//             // attempts = 3
-//             // // startAtm()
-//             // alert("Start Atm")
-//         } else{
-//             attempts--;
-//             alert(`incorrect pin,${attempts } attempts left`)
-//         }
-    
-//     }
-//     alert( "you have brrn locked out, please contact the bank";)
-// }
+// interect with attributes
 
+const mylink = document.querySelector(".mylink");
 
-// function checkbal() {
-//   aleart( `your current balance is $${bal}`)
-// }
-// function withdraw (amount) {
-//     let amount =
-//     parseFloat(prompt("Enter amount to withdraw"));
+//facebook
+mylink.textContent = "Facebook"
+mylink.setAttribute("href", "https://facebook.com")
+mylink.setAttribute("target", "_blank")
 
-//     if(isNaN(amount) || <= 0)
-//         {
-//         alert("invalid amount")
-//     } else if(amount > balance){
-//         alert("insufficient funds");
-//     } else{
-//         balance -= amount;
-//         alert(withdrawal successful.
-//             New balance:$${balance}
-//         )
-    
-//     }
-        
-   
-// }
-// console.log(withdrawalamount(1000));
+// interact with styles
+mylink .style.color ="red";
+mylink.style.textDecoration ="none"
 
-// function depositamount (amount) {
-//         balance += amount
-//         return "Deposit successful"
-// }
+const btn = document.querySelector('button')
 
-// let pin = 1234
+// btn.className ="mybtn";
+// uisng classlist to override classname
+ btn.classList.add('mybtn')
 
-// write a simple atm js algo
-// checkbalance
-// withdrawal
-// depositamount
-// check pin validation
+ const section = document.createElement("section")
+ section.innerHTML = "<h1> created from js </h1>"
+ section.classList.add ('mysection')
 
-const pin = 1234;
-let attempts = 3;
-let balance = 5000;
+ // when evere you create an element you have to append it on the body or 
+ /// whereever its needed
+  const body = document.querySelector("body")
+  body.appendChild(section)
 
+  // users interaction
+  // we have differnt ways of interaction with users interaction
+  // event and event handler
 
+  const testbtn = document.querySelector(".testbtn");
+   testbtn.addEventListener("click",() =>{
+    console.log("user clicked");
+    // body.style.backgroundColor = "red"
+    section.style.backgroundColor = 'red'
+   })
 
-function checkPin() {
-  while (attempts > 0) {
-    let enteredPin = parseInt(prompt("Enter your PIN:"));
+   // form handling
+   // with form you can sumit or on click
+   // alos each time a button is submitted it refreshes a page for one to be able to stop ir
+   // you must preventdrefult on the event
 
-    if (enteredPin === pin) {
-      alert("PIN accepted. Welcome!");
-      atmMenu();
-      return;
-    } else {
-      attempts--;
-      alert(`Incorrect PIN. You have ${attempts} attempts left.`);
+   const form = document.querySelector('form')
+   const fullname = document.querySelector('.fullname')
+   const small = document.querySelector('form small')
+
+   form.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    const fullNamevalue = fullname.value.trim()
+    console.log("form submitted", fullNamevalue);
+
+    if (fullNamevalue === "") {
+          small.style.display = "block";
+          small.textContent = "please provide a name";
     }
-  }
+    
+    // console.log("form submitted",fullnameValue);
 
-  alert("You have been locked out. Please contact the bank.");
-}
-
-function checkBalance() {
-  alert(`Your current balance is $${balance}`);
-}
-
-function withdraw() {
-  let amount = parseFloat(prompt("Enter amount to withdraw:"));
-
-  if (isNaN(amount) || amount <= 0) {
-    alert("Invalid amount.");
-  } else if (amount > balance) {
-    alert("Insufficient funds.");
-  } else {
-    balance -= amount;
-    alert(`Withdrawal successful. New balance: $${balance}`);
-  }
-}
-
-function deposit() {
-  let amount = parseFloat(prompt("Enter amount to deposit:"));
-
-  if (isNaN(amount) || amount <= 0) {
-    alert("Invalid amount.");
-  } else {
-    balance += amount;
-    alert(`Deposit successful. New balance: $${balance}`);
-  }
-}
-
-function atmMenu() {
-  while (true) {
-    let choice = prompt(
-      "Choose an option:\n1. Check Balance\n2. Withdraw Money\n3. Deposit Money\n4. Exit"
-    );
-
-    if (choice === "1") {
-      checkBalance();
-    } else if (choice === "2") {
-      withdraw();
-    } else if (choice === "3") {
-      deposit();
-    } else if (choice === "4") {
-      alert("Thank you for using the ATM.");
-      return;
-    } else {
-      alert("Invalid option. Try again.");
-    }
-  }
-}
-
-// Start the ATM program
-checkPin();
+    
+   })
